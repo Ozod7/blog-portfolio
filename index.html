@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог-портфолио | Озодбек</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 1.5rem 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        header p {
+            font-size: 1rem;
+        }
+
+        nav {
+            background-color: #34495e;
+            padding: 0.8rem 0;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 0.5rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+        }
+
+        .skills {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+        .skills ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .skills ul li {
+            background: #e0e0e0;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            margin: 0.3rem;
+            border-radius: 15px;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .article-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-date {
+            color: #777;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .article-excerpt {
+            color: #555;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .read-more {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+
+        .contact-info h3 {
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        .contact-info a {
+            color: #2c3e50;
+        }
+
+        .social-links {
+            margin-top: 0.8rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            background: #2c3e50;
+            color: white;
+            padding: 0.3rem 1rem;
+            margin-right: 0.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #1a252f;
+        }
+
+        input, textarea {
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 0.5rem;
+        }
+
+        button {
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Блог-портфолио</h1>
+    <p>Озодбек | Веб-разработчик</p>
+</header>
+
+<nav>
+    <a href="#" data-page="about">О себе</a>
+    <a href="#" data-page="articles">Статьи</a>
+    <a href="#" data-page="contacts">Контакты</a>
+</nav>
+
+<div class="container">
+    <div id="about" class="page active">
+        <h2>О себе</h2>
+        <div class="about-text">
+            <p>Меня зовут Озодбек. Я студент АНПОО «Сургутский институт экономики, управления и права» по специальности "Информационные системы и программирование".</p>
+            <p>Я занимаюсь веб-разработкой: создаю сайты и веб-приложения. Владею HTML, CSS, JavaScript. Постоянно учусь новому и совершенствую свои навыки.</p>
+            <p>В свободное время читаю техническую литературу, участвую в хакатонах и работаю над личными проектами.</p>
+            <p>Этот сайт — моё портфолио и блог, где я делюсь опытом и публикую статьи на тему веб-разработки.</p>
+        </div>
+        <div class="skills">
+            <h3>Мои навыки</h3>
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Git</li>
+                <li>Figma</li>
+            </ul>
+            <h3>Образование</h3>
+            <p>АНПОО "Сургутский институт экономики, управления и права"</p>
+            <p>Специальность: Информационные системы и программирование</p>
+        </div>
+    </div>
+
+    <div id="articles" class="page">
+        <h2>Статьи</h2>
+        <div id="articles-container" class="articles-grid"></div>
+    </div>
+
+    <div id="contacts" class="page">
+        <h2>Контакты</h2>
+        <div class="contact-info">
+            <h3>Связаться со мной</h3>
+            <p>Email: <a href="mailto:ozodbek@example.com">ozodbek@example.com</a></p>
+            <p>Telegram: <a href="https://t.me/ozodbek" target="_blank">@ozodbek</a></p>
+            <p>GitHub: <a href="https://github.com/ozodbek" target="_blank">github.com/ozodbek</a></p>
+        </div>
+        <div class="contact-info">
+            <h3>Написать сообщение</h3>
+            <form id="feedbackForm">
+                <p><label>Ваше имя:</label><br>
+                <input type="text" id="feedbackName" style="width: 100%;" required></p>
+                
+                <p><label>Email:</label><br>
+                <input type="email" id="feedbackEmail" style="width: 100%;" required></p>
+                
+                <p><label>Сообщение:</label><br>
+                <textarea id="feedbackMessage" rows="4" style="width: 100%;" required></textarea></p>
+                
+                <button type="submit">Отправить</button>
+            </form>
+            <p id="feedbackResult" style="margin-top: 1rem;"></p>
+        </div>
+        <div class="contact-info">
+            <h3>Социальные сети</h3>
+            <div class="social-links">
+                <a href="#">ВКонтакте</a>
+                <a href="#">Telegram</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 Озодбек. Блог-портфолио. Все права защищены.</p>
+</footer>
+
+<script>
+    const articles = [
+        {
+            id: 1,
+            title: "Как я начал изучать веб-разработку",
+            date: "15 марта 2026",
+            excerpt: "История моего пути в IT: с первых уроков HTML до создания полноценных проектов. Советы для начинающих.",
+            fullText: "Полный текст статьи о начале пути в веб-разработку..."
+        },
+        {
+            id: 2,
+            title: "Топ-5 инструментов фронтенд-разработчика",
+            date: "28 марта 2026",
+            excerpt: "Обзор полезных инструментов: VS Code, Figma, Git, Chrome DevTools и Webpack.",
+            fullText: "Полный текст статьи об инструментах..."
+        },
+        {
+            id: 3,
+            title: "Как создать блог-портфолио с нуля",
+            date: "5 апреля 2026",
+            excerpt: "Пошаговое руководство по созданию личного сайта-портфолио на HTML, CSS и JavaScript.",
+            fullText: "Полный текст статьи о создании блога..."
+        },
+        {
+            id: 4,
+            title: "JavaScript: замыкания и контекст",
+            date: "12 апреля 2026",
+            excerpt: "Разбираем сложные темы JavaScript простым языком. Примеры кода.",
+            fullText: "Полный текст статьи о JavaScript..."
+        },
+        {
+            id: 5,
+            title: "Мой опыт участия в хакатоне",
+            date: "20 апреля 2026",
+            excerpt: "Рассказ о первом опыте участия в командном хакатоне, эмоциях и результатах.",
+            fullText: "Полный текст статьи о хакатоне..."
+        },
+        {
+            id: 6,
+            title: "Что нужно знать junior-разработчику",
+            date: "28 апреля 2026",
+            excerpt: "Список технологий и навыков для старта карьеры веб-разработчика.",
+            fullText: "Полный текст статьи о junior-разработчиках..."
+        }
+    ];
+
+    function renderArticles() {
+        const container = document.getElementById('articles-container');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        
+        for (let i = 0; i < articles.length; i++) {
+            const article = articles[i];
+            const card = document.createElement('div');
+            card.className = 'article-card';
+            card.innerHTML = `
+                <h3>${article.title}</h3>
+                <div class="article-date">${article.date}</div>
+                <p class="article-excerpt">${article.excerpt}</p>
+                <a href="#" class="read-more" data-id="${article.id}">Читать далее →</a>
+            `;
+            container.appendChild(card);
+        }
+        
+        const readMoreLinks = document.querySelectorAll('.read-more');
+        for (let i = 0; i < readMoreLinks.length; i++) {
+            readMoreLinks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                const id = parseInt(this.getAttribute('data-id'));
+                const article = articles.find(a => a.id === id);
+                if (article) {
+                    alert('Статья: ' + article.title + '\n\n' + article.fullText);
+                }
+            });
+        }
+    }
+
+    function navigateTo(pageId) {
+        const pages = document.querySelectorAll('.page');
+        for (let i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        document.getElementById(pageId).classList.add('active');
+    }
+
+    const navLinks = document.querySelectorAll('nav a');
+    for (let i = 0; i < navLinks.length; i++) {
+        navLinks[i].addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            navigateTo(page);
+        });
+    }
+
+    const feedbackForm = document.getElementById('feedbackForm');
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('feedbackName').value;
+            const email = document.getElementById('feedbackEmail').value;
+            const message = document.getElementById('feedbackMessage').value;
+            
+            if (name && email && message) {
+                document.getElementById('feedbackResult').innerHTML = 'Спасибо, ' + name + '! Сообщение отправлено.';
+                document.getElementById('feedbackResult').style.color = 'green';
+                feedbackForm.reset();
+            } else {
+                document.getElementById('feedbackResult').innerHTML = 'Заполните все поля.';
+                document.getElementById('feedbackResult').style.color = 'red';
+            }
+        });
+    }
+
+    renderArticles();
+</script>
+
+</body>
+</html>
